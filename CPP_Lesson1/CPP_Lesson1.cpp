@@ -36,7 +36,10 @@ private:
 
 void RGBA::print_rgba() {
     std::cout << "\n";
-    std::cout << m_red + 0 << " " << m_green + 0 << " " << m_blue + 0 << " " << m_alpha + 0 << std::endl;
+    std::cout << " Red=\t"<< m_red + 0 << std::endl;
+    std::cout << " Green=\t" << m_green + 0 << std::endl;
+    std::cout << " Blue=\t" << m_blue + 0 << std::endl;
+    std::cout << " White=\t" << m_alpha + 0 << std::endl;
 }
 
 
@@ -59,6 +62,10 @@ public:
         return true;
     }
     int pop() {
+        if (deep <= 0) {
+            std::cout << "Stack is empty" << std::endl;
+            return -1;
+        }
         deep--;
         int ret = Arr[0];
         for (int i = 0; i < deep; i++) {
@@ -89,6 +96,7 @@ int main()
     std::cout << P.calculate();
 
     //_____________2_____________________
+    std::cout << "\n";
     RGBA light(0, 0, 0, 255);
     light.print_rgba();
 
@@ -110,6 +118,9 @@ int main()
     stack.pop();
     stack.pop();
     stack.print();
+   
+    stack.pop();
+
 
     return 0;
 
